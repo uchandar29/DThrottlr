@@ -1,0 +1,28 @@
+# Server Configs
+server:
+  host: "localhost"
+  port: 4964
+
+# Redis Configs
+redis:
+  address: "<redis-host>:<redis-port>"
+  password: "<redis-password>"
+  db: 0
+
+# Database Configs
+database:
+  host: "<db-host>"
+  port: <db-port>
+  username: "<db-username>"
+  password: "<db-password>"
+  schema: "<db-schema>"
+
+# Limiter Configs
+limiter:
+  bucket_size: 20     # Maximum number of tokens in the bucket
+  token_refill_rate: 5  # Number of tokens to add per second
+
+# Node Configs
+nodes:
+  node_count: 4
+  base_port: 7543
