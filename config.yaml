@@ -5,8 +5,8 @@ server:
 
 # Redis Configs
 redis:
-  address: "<redis-host>:<redis-port>"
-  password: "<redis-password>"
+  address: "localhost:6379"
+  password: ""
   db: 0
 
 # Database Configs
