@@ -1,7 +1,7 @@
 package main
 
 import (
-	"context"
+	"fmt"
 	"log"
 
 	"github.com/uchandar29/DThrottlr/internal/config"
@@ -29,13 +29,9 @@ func main() {
 	}
 	defer rdsClient.Close()
 
-	// -- Test the limiter with a sample client ID
-	lim := limiter.New(rdsClient, appConf.LimiterConfig.BucketSize, appConf.LimiterConfig.TokenRefillRate)
-	allowed, remaining, _ := lim.Allow(context.Background(), "test-client")
-	log.Printf("allowed=%v remaining=%d", allowed, remaining)
-	// -- Test the limiter with a sample client ID
+	limiter := limiter.New(rdsClient, appConf.LimiterConfig.BucketSize, appConf.LimiterConfig.TokenRefillRate)
 
-	if err := server.Run(":8080"); err != nil {
+	if err := server.Run(fmt.Sprintf(":%d", appConf.ServerConfig.Port), limiter); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}
 }

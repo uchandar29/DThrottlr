@@ -8,7 +8,7 @@ import (
 )
 
 type ServerConfig struct {
-	Port string `yaml:"port"`
+	Port int `yaml:"port"`
 }
 
 type RedisConfig struct {
