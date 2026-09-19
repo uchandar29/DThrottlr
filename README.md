@@ -1,4 +1,4 @@
-<p align="center"><b><font size="7">🚦 DThrottlr</font></b></p>
+<p align="center"><b><font size="9">🚦 DThrottlr</font></b></p>
 <p align="center"><i>A distributed rate limiter, built in Go to learn Go.</i></p>
 
 <p align="center">
