@@ -1,5 +1,5 @@
-<p align="center"><b><font size="9">🚦 DThrottlr</font></b></p>
-<p align="center"><i>A distributed rate limiter, built in Go to learn Go.</i></p>
+<h1 align="center">🚦 DThrottlr : A Distributed Rate Limiter</h1>
+<p align="center"><i>Built in Go - To learn Go.</i></p>
 
 <p align="center">
 <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white">
@@ -14,7 +14,6 @@
 <img src="https://img.shields.io/badge/NGINX-009639?style=for-the-badge&logo=nginx&logoColor=white">
 <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white">
 </p>
-<hr>
 
 <p align="justify">
 A distributed rate limiter built in Go, designed to run across multiple stateless application nodes sharing a single Redis backend. This project uses the token bucket algorithm, with all rate limit checks executed atomically inside Redis using Lua scripting, so there is no need for distributed locks.
@@ -46,7 +45,7 @@ This project is being built in phases. Here is where things stand right now.
 <ul style="list-style-type:square">
     <li> [x] Phase 1: Server skeleton — Go module initialized, chi router set up, health check endpoint working.</li>
     <li> [x] Phase 2: Config loader — `config.yaml` drives server port, Redis connection, bucket capacity, refill rate and node settings, parsed and validated on startup.</li>
-    <li> [x] Phase 3: Redis + Lua token bucket — Atomic token bucket logic written in Lua, embedded into the Go binary, executed via go<li>redis. Verified with unit tests and manual runs, including refill behavior and TTL based cleanup of idle client buckets.</li>
+    <li> [x] Phase 3: Redis + Lua token bucket — Atomic token bucket logic written in Lua, embedded into the Go binary, executed via go-redis. Verified with unit tests and manual runs, including refill behavior and TTL based cleanup of idle client buckets.</li>
     <li> [x] Phase 4: HTTP middleware integration — Rate limiting wired in as chi middleware, returns 429 with a Retry-After header when a client is throttled, tested end to end against a live endpoint.</li>
     <li> [ ] Phase 5: Multi node simulation — Run multiple instances of the server against the same Redis and confirm state is shared correctly.</li>
     <li> [ ] Phase 6: Metrics and dashboard backend — Track allowed and throttled counts, expose over WebSocket or SSE.</li>
